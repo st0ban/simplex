@@ -1,0 +1,16 @@
+
+p
+{
+	color: blue;
+}
+table
+{
+        border-collapse: collapse;
+	caption-side: bottom; 
+}
+td, th
+{
+        border: 1px solid black;
+}
+
+
