@@ -1,7 +1,7 @@
 
 p
 {
-	color: blue;
+	color: red;
 }
 table
 {
@@ -12,5 +12,23 @@ td, th
 {
         border: 1px solid black;
 }
-
-
+header
+{
+	text-align: center;
+        margin-top: 0px;
+}
+body
+{
+	width 70%;
+	text-align: center;
+}
+#tableau
+{
+	width: 70%;
+	text-align: center;
+}
+footer
+{
+	float: right;	
+	margin-down: 0px;
+}

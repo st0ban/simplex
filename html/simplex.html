@@ -6,14 +6,13 @@
 		<title>SIMPLEX</title>
 	</head>
 
-	<header>
-		<p>CALCUL DU SIMPLEX</p>
-	</header>
 
 	<body>
-		<script src="../js/simplex.js"></script>
-		<table>
-			<caption>fonction optimum</caption>
+		<header>
+        	        <h1><p>PROGRATION LINEAIRE : CALCUL DU SIMPLEX</p></h1>
+	        </header>
+ 		<form>
+		<table id="tableau">	
 			<tr>
 				<td></td>
 				<th>x1</th>
@@ -21,17 +20,79 @@
 				<th>x3</th>
 				<th>x4</th>
 				<th>x5</th>
+				<th></th>
+				<th></th>
 			</tr>
-
 			<tr>
-				<th>max z</th>
-                                <td><input type="text" name="valuex1" /></td>
-                                <td><input type="text" name="valuex2" /></td>
-                                <td><input type="text" name="valuex3" /></td>
-                                <td><input type="text" name="valuex4" /></td>
-                                <td><input type="text" name="valuex5" /></td>
+				<th>max z = </th>
+                                <td><input type="number" min=0 max=10 name="valuex1max" /></td>
+				<td><input type="number" min=0 max=10 name="valuex2max" /></td>
+                                <td><input type="number" min=0 max=10 name="valuex3max" /></td>
+                                <td><input type="number" min=0 max=10 name="valuex4max" /></td>
+                                <td><input type="number" min=0 max=10 name="valuex5max" /></td>
+				<td></td>
+				<td></td>
 			</tr>
-
-		</table>
+			<tr>
+                                <th>Contrainte 1</th>
+                                <td><input type="number" min=0 max=10 name="valuex1c1" /></td>
+                                <td><input type="number" min=0 max=10 name="valuex2c1" /></td>
+                                <td><input type="number" min=0 max=10 name="valuex3c1" /></td>
+                                <td><input type="number" min=0 max=10 name="valuex4c1" /></td>
+                                <td><input type="number" min=0 max=10 name="valuex5c1" /></td>
+                                <td>&lt=</td>
+                                <td><input type="number" min=0 max=10 name="valuex6c1"/td>
+                        </tr>
+			<tr>
+                                <th>Contrainte 2</th>
+                                <td><input type="number" min=0 max=10 name="valuex1c2" /></td>
+                                <td><input type="number" min=0 max=10 name="valuex2c2" /></td>
+                                <td><input type="number" min=0 max=10 name="valuex3c2" /></td>
+                                <td><input type="number" min=0 max=10 name="valuex4c2" /></td>
+                                <td><input type="number" min=0 max=10 name="valuex5c2" /></td>
+                                <td>&lt=</td>
+                                <td><input type="number" min=0 max=10 name="valuex6c2"/td>
+                        </tr>
+			<tr>
+                                <th>Contrainte 3</th>
+                                <td><input type="number" min=0 max=10 name="valuex1c3" /></td>
+                                <td><input type="number" min=0 max=10 name="valuex2c3" /></td>
+                                <td><input type="number" min=0 max=10 name="valuex3c3" /></td>
+                                <td><input type="number" min=0 max=10 name="valuex4c3" /></td>
+                                <td><input type="number" min=0 max=10 name="valuex5c3" /></td>
+                                <td>&lt=</td>
+                                <td><input type="number" min=0 max=10 name="valuex6c3"/td>
+                        </tr>
+                        <tr>
+                                <th>Contrainte 4</th>
+                                <td><input type="number" min=0 max=10 name="valuex1c4" /></td>
+                                <td><input type="number" min=0 max=10 name="valuex2c4" /></td>
+                                <td><input type="number" min=0 max=10 name="valuex3c4" /></td>
+                                <td><input type="number" min=0 max=10 name="valuex4c4" /></td>
+                                <td><input type="number" min=0 max=10 name="valuex5c4" /></td>
+                                <td>&lt=</td>
+                                <td><input type="number" min=0 max=10 name="valuex6c4"/td>
+                        </tr>
+			<tr>
+                                <th>Contrainte 5</th>
+                                <td><input type="number" min=0 max=10 name="valuex1c5" /></td>
+                                <td><input type="number" min=0 max=10 name="valuex2c5" /></td>
+                                <td><input type="number" min=0 max=10 name="valuex3c5" /></td>
+                                <td><input type="number" min=0 max=10 name="valuex4c5" /></td>
+                                <td><input type="number" min=0 max=10 name="valuex5c5" /></td>
+                                <td>&lt=</td>
+                                <td><input type="number" min=0 max=10 name="valuex6c5"/td>
+                        </tr>
+                        <tr>
+      			</table>
+			</br>
+			<input type="reset" value="remise à zéro" />
+			<input type="submit" value="calculer" />
+			</form>
+	<footer>
+		<script src="../js/simplex.js"></script>
+		<p><pre>Projet Recherche Opérationnelle : calcul du simplex. 
+		Steve Debuchy Janvier 2017.</pre></p>	
+	</footer>
 	</body>
 </html>
