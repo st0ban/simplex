@@ -1,12 +1,14 @@
 
-p
-{
-	color: red;
-}
 table
 {
-        border-collapse: collapse;
+        margin:0 auto;
+	border-collapse: collapse;
 	caption-side: bottom; 
+}
+#container
+{
+        width 70%;
+        text-align: center;
 }
 td, th
 {
@@ -17,11 +19,16 @@ header
 	text-align: center;
         margin-top: 0px;
 }
-body
+
+#reponse
 {
-	width 70%;
-	text-align: center;
+	font-size: 30px;
+	margin-left: 150px;
+	text-align: left;
+	color: blue;
 }
+
+
 #tableau
 {
 	width: 70%;
