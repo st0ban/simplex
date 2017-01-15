@@ -23,6 +23,111 @@ var c3 = Object.create(c1);
 var c4 = Object.create(c1);
 var c5 = Object.create(c1);
 
+// saisies variables préléminaires
+var contraintes;
+var variables;
+function supline(num){
+	document.getElementById("tableau").deleteRow(num);
+}
+function clic(){ 
+	contraintes = document.getElementById("contraintes");
+	variables = document.getElementById("variables");
+	console.log("contraintes : "+contraintes.value+" "+"variables : "+variables.value); // debug
+	// construction du tableau HTML
+	// ligne 1 
+	var text = '<table id="tableau"><tr><td></td><th>x<sub>1</sub></th><th>x<sub>2</sub></th>';
+	if(variables.value > 2){	
+		text += '<th>x<sub>3</sub></th>';
+		if(variables.value > 3){
+			text += '<th>x<sub>4</sub></th>';
+			if(variables.value > 4)	
+				text += '<th>x<sub>5</sub></th>';
+		}
+	}
+	text += '<th></th><th></th></tr>';
+	// ligne 2		
+	text += '<tr><th>max z = </th><td><input type="number" min=0 max=100 name="valuex1max" /></td><td><input type="number" min=0 max=100 name="valuex2max" /></td>';
+
+	if(variables.value > 2){        
+        	text += '<td><input type="number" min=0 max=100 name="valuex3max" /></td>';
+       		if(variables.value > 3){
+                	text += '<td><input type="number" min=0 max=100 name="valuex4max" /></td>';
+                        if(variables.value > 4) 
+                		text += '<td><input type="number" min=0 max=100 name="valuex5max" /></td>';
+                }
+        }
+	text += '<td></td><td></td></tr>';
+	// ligne 3
+	text += '<tr><th>Contrainte 1</th><td><input type="number" min=0 max=100 name="valuex1c1" /></td><td><input type="number" min=0 max=100 name="valuex2c1" /></td>';
+	if(variables.value > 2){        
+                text += '<td><input type="number" min=0 max=100 name="valuex3c1" /></td>';
+                if(variables.value > 3){
+                        text += '<td><input type="number" min=0 max=100 name="valuex4c1" /></td>';
+                        if(variables.value > 4) 
+                                text += '<td><input type="number" min=0 max=100 name="valuex5c1" /></td>';
+                }
+        }
+        text += '<td>&lt=</td><td><input type="number" min=0 max=1000 name="valuex6c1"/td></tr>';
+        // ligne 4  
+	text += '<tr><th>Contrainte 2</th><td><input type="number" min=0 max=100 name="valuex1c1" /></td><td><input type="number" min=0 max=100 name="valuex2c2" /></td>';
+	if(variables.value > 2){        
+                text += '<td><input type="number" min=0 max=100 name="valuex3c2" /></td>';
+                if(variables.value > 3){
+                        text += '<td><input type="number" min=0 max=100 name="valuex4c2" /></td>';
+                        if(variables.value > 4) 
+                                text += '<td><input type="number" min=0 max=100 name="valuex5c2" /></td>';
+                }
+        }
+        text += '<td>&lt=</td><td><input type="number" min=0 max=1000 name="valuex6c2"/td></tr>';
+        // ligne 5 
+	if(contraintes.value > 2){
+		text += '<tr><th>Contrainte 3</th><td><input type="number" min=0 max=100 name="valuex1c1" /></td><td><input type="number" min=0 max=100 name="valuex2c3" /></td>';
+        if(variables.value > 2){ 
+                text += '<td><input type="number" min=0 max=100 name="valuex3c3" /></td>';
+                if(variables.value > 3){
+                        text += '<td><input type="number" min=0 max=100 name="valuex4c3" /></td>';
+                        if(variables.value > 4)
+                                text += '<td><input type="number" min=0 max=100 name="valuex5c3" /></td>';
+                }
+        }
+        text += '<td>&lt=</td><td><input type="number" min=0 max=1000 name="valuex6c3"/td></tr>';
+	}
+        // ligne 6
+	if(contraintes.value > 3){
+                text += '<tr><th>Contrainte 4</th><td><input type="number" min=0 max=100 name="valuex1c1" /></td><td><input type="number" min=0 max=100 name="valuex2c4" /></td>';
+        if(variables.value > 2){
+                text += '<td><input type="number" min=0 max=100 name="valuex3c4" /></td>';
+                if(variables.value > 3){
+                        text += '<td><input type="number" min=0 max=100 name="valuex4c4" /></td>';
+                        if(variables.value > 4)
+                                text += '<td><input type="number" min=0 max=100 name="valuex5c4" /></td>';
+                }
+        }
+        text += '<td>&lt=</td><td><input type="number" min=0 max=1000 name="valuex6c4"/td></tr>';
+        }
+        // ligne 7 
+	if(contraintes.value > 4){ 
+                text += '<tr><th>Contrainte 5</th><td><input type="number" min=0 max=100 name="valuex1c1" /></td><td><input type="number" min=0 max=100 name="valuex2c2" /></td>';
+        if(variables.value > 2){
+                text += '<td><input type="number" min=0 max=100 name="valuex3c2" /></td>';
+                if(variables.value > 3){
+                        text += '<td><input type="number" min=0 max=100 name="valuex4c2" /></td>';
+                        if(variables.value > 4)
+                                text += '<td><input type="number" min=0 max=100 name="valuex5c2" /></td>';
+                }
+        }
+        text += '<td>&lt=</td><td><input type="number" min=0 max=1000 name="valuex6c2"/td></tr>';
+        }
+         
+
+
+	text += '</table>';
+	document.getElementById("injecter").innerHTML = text;
+}
+var boutonOk = document.getElementById("Ok");
+
+boutonOk.addEventListener("click", clic);
+
 // execution
 form.addEventListener("submit",function(e){
 	// initialisation des objets

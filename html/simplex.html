@@ -12,25 +12,27 @@
 		<header>
         	        <h1><p>PROGRATION LINEAIRE : MAXIMISATION</p></h1>
 	        </header>
+
 		<section>
-			<form id="initialisation">
-				<table>
+				<table id="initialisation">
 					<tr>	
 						<td><label>nombre de contraintes</label></td>
-						<td><input type="number" min=0 max=5 name="contraintes" /></td>
+						<td><input type="number" min=2 max=5 name="contraintes" id="contraintes" /></td>
 					</tr>
 					<tr>
 						<td><label>nombre de variables</label></td>
-						<td><input type="number" min=0 max=5 name="variables"/></td>
+						<td><input type="number" min=2 max=5 name="variables" id="variables"/></td>
 					</tr>
 				</table></br>
-				<input type="button" value="ok" />
-			</form>
+				<button id="Ok">ok</button>
 		</section>
- 		<form>
+		<section id="injecter">
+		<form>
+ 		<!--code à injecter
 		</br>
 
-		<table id="tableau">	<!-- code à générer en js -->
+		<table id="tableau">	
+
 			<tr>
 				<td></td>
 				<th>x<sub>1</sub></th>
@@ -106,7 +108,9 @@
 			</br>
 			<input type="reset" value="remise à zéro" />
 			<input type="submit" value="calculer" />
+			-->
 			</form>
+			</section>
 			<section id="reponse">
 				<p>
 					<label>x1 = </label><label id="x1"></label></br>
