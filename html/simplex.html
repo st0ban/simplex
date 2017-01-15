@@ -10,17 +10,34 @@
 	<body>
 		<section id="container">
 		<header>
-        	        <h1><p>PROGRATION LINEAIRE : CALCUL DU SIMPLEX</p></h1>
+        	        <h1><p>PROGRATION LINEAIRE : MAXIMISATION</p></h1>
 	        </header>
+		<section>
+			<form id="initialisation">
+				<table>
+					<tr>	
+						<td><label>nombre de contraintes</label></td>
+						<td><input type="number" min=0 max=5 name="contraintes" /></td>
+					</tr>
+					<tr>
+						<td><label>nombre de variables</label></td>
+						<td><input type="number" min=0 max=5 name="variables"/></td>
+					</tr>
+				</table></br>
+				<input type="button" value="ok" />
+			</form>
+		</section>
  		<form>
-		<table id="tableau">	
+		</br>
+
+		<table id="tableau">	<!-- code à générer en js -->
 			<tr>
 				<td></td>
-				<th>x1</th>
-				<th>x2</th>
-				<th>x3</th>
-				<th>x4</th>
-				<th>x5</th>
+				<th>x<sub>1</sub></th>
+				<th>x<sub>2</sub></th>
+				<th>x<sub>3</sub></th>
+				<th>x<sub>4</sub></th>
+				<th>x<sub>5</sub></th>
 				<th></th>
 				<th></th>
 			</tr>

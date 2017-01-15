@@ -1,20 +1,20 @@
 console.log("open simplex");
 
-// recup dom
+// recuperation DOM
+
 var form = document.querySelector("form");
-console.log("nombre de champs saisie : " + form.elements.length); // debug
 
 // objects
 var maxZ = {
         valuex1max :0, valuex2max :0, valuex3max :0, valuex4max :0, valuex5max :0,
 	afficher: function (){
-		return this.valuex1max+" "+this.valuex2max+" "+this.valuex3max+" "+this.valuex4max+" "+this.valuex5max;
+		return "maxZ = "+this.valuex1max+" X1 + "+this.valuex2max+" X2 + "+this.valuex3max+" X3 + "+this.valuex4max+" X4 + "+this.valuex5max+" X5";
 	}
 };
 var c1 = {
-        valuex1 :0, valuex2 :0, valuex3 :0, valuex4 :0, valuex5 :0, valuex6 :0,
+        valuex1 :0, valuex2 :0, valuex3 :0, valuex4 :0, valuex5 :0, valuex6 :0, ecart :0,
 	afficher: function(){
-	return this.valuex1+" "+this.valuex2+" "+this.valuex3+" "+this.valuex4+" "+this.valuex5+" "+this.valuex6;
+	return this.valuex1+" X1 + "+this.valuex2+" X2 + "+this.valuex3+" X3 + "+this.valuex4+" X4 + "+this.valuex5+" X5 <= "+this.valuex6;
 	}
 };
 
@@ -67,7 +67,7 @@ form.addEventListener("submit",function(e){
 	c5.valuex5 = form.elements.valuex5c5.value;
 	c5.valuex6 = form.elements.valuex6c5.value;
 	console.log(c5.afficher()); // debug
-	// calcul
+	// algo
 	e.preventDefault(); //annulation de l'envoi des données du formulaire
 });
 

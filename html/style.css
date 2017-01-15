@@ -3,7 +3,7 @@ table
 {
         margin:0 auto;
 	border-collapse: collapse;
-	caption-side: bottom; 
+	<!--caption-side: bottom; -->
 }
 #container
 {
