@@ -17,112 +17,37 @@
 				<table id="initialisation">
 					<tr>	
 						<td><label>nombre de contraintes</label></td>
-						<td><input type="number" min=2 max=5 name="contraintes" id="contraintes" /></td>
+						<td><input type="range" min=2 max=5 step=1 value=2 name="contraintes" id="contraintes" /></td>
 					</tr>
 					<tr>
 						<td><label>nombre de variables</label></td>
-						<td><input type="number" min=2 max=5 name="variables" id="variables"/></td>
+						<td><input type="range" min=2 max=5 step=1 value=2 name="variables" id="variables"/></td>
 					</tr>
 				</table></br>
 		</section>
 		<form></br>
-		<section id="injecter">
- 		<!--code à injecter
+		<section id="injecter"> </-- tableau injecté en javascript -->                        
+		</section>
+		<section>
 		</br>
-
-		<table id="tableau">	
-
-			<tr>
-				<td></td>
-				<th>x<sub>1</sub></th>
-				<th>x<sub>2</sub></th>
-				<th>x<sub>3</sub></th>
-				<th>x<sub>4</sub></th>
-				<th>x<sub>5</sub></th>
-				<th></th>
-				<th></th>
-			</tr>
-			<tr>
-				<th>max z = </th>
-                                <td><input type="number" min=0 max=100 name="valuex1max" /></td>
-				<td><input type="number" min=0 max=100 name="valuex2max" /></td>
-                                <td><input type="number" min=0 max=100 name="valuex3max" /></td>
-                                <td><input type="number" min=0 max=100 name="valuex4max" /></td>
-                                <td><input type="number" min=0 max=100 name="valuex5max" /></td>
-				<td></td>
-				<td></td>
-			</tr>
-			<tr>
-                                <th>Contrainte 1</th>
-                                <td><input type="number" min=0 max=100 name="valuex1c1" /></td>
-                                <td><input type="number" min=0 max=100 name="valuex2c1" /></td>
-                                <td><input type="number" min=0 max=100 name="valuex3c1" /></td>
-                                <td><input type="number" min=0 max=100 name="valuex4c1" /></td>
-                                <td><input type="number" min=0 max=100 name="valuex5c1" /></td>
-                                <td>&lt=</td>
-                                <td><input type="number" min=0 max=1000 name="valuex6c1"/td>
-                        </tr>
-			<tr>
-                                <th>Contrainte 2</th>
-                                <td><input type="number" min=0 max=100 name="valuex1c2" /></td>
-                                <td><input type="number" min=0 max=100 name="valuex2c2" /></td>
-                                <td><input type="number" min=0 max=100 name="valuex3c2" /></td>
-                                <td><input type="number" min=0 max=100 name="valuex4c2" /></td>
-                                <td><input type="number" min=0 max=100 name="valuex5c2" /></td>
-                                <td>&lt=</td>
-                                <td><input type="number" min=0 max=1000 name="valuex6c2"/td>
-                        </tr>
-			<tr>
-                                <th>Contrainte 3</th>
-                                <td><input type="number" min=0 max=100 name="valuex1c3" /></td>
-                                <td><input type="number" min=0 max=100 name="valuex2c3" /></td>
-                                <td><input type="number" min=0 max=100 name="valuex3c3" /></td>
-                                <td><input type="number" min=0 max=100 name="valuex4c3" /></td>
-                                <td><input type="number" min=0 max=100 name="valuex5c3" /></td>
-                                <td>&lt=</td>
-                                <td><input type="number" min=0 max=1000 name="valuex6c3"/td>
-                        </tr>
-                        <tr>
-                                <th>Contrainte 4</th>
-                                <td><input type="number" min=0 max=100 name="valuex1c4" /></td>
-                                <td><input type="number" min=0 max=100 name="valuex2c4" /></td>
-                                <td><input type="number" min=0 max=100 name="valuex3c4" /></td>
-                                <td><input type="number" min=0 max=100 name="valuex4c4" /></td>
-                                <td><input type="number" min=0 max=100 name="valuex5c4" /></td>
-                                <td>&lt=</td>
-                                <td><input type="number" min=0 max=1000 name="valuex6c4"/td>
-                        </tr>
-			<tr>
-                                <th>Contrainte 5</th>
-                                <td><input type="number" min=0 max=100 name="valuex1c5" /></td>
-                                <td><input type="number" min=0 max=100 name="valuex2c5" /></td>
-                                <td><input type="number" min=0 max=100 name="valuex3c5" /></td>
-                                <td><input type="number" min=0 max=100 name="valuex4c5" /></td>
-                                <td><input type="number" min=0 max=100 name="valuex5c5" /></td>
-                                <td>&lt=</td>
-                                <td><input type="number" min=0 max=1000 name="valuex6c5"/td>
-                        </tr>
-                        <tr>
-      			</table>-->
-			</section>
-			<section>
-			</br>
-			<input type="reset" value="remise à zéro" />
-			<input type="button" value="calculer" id="calculer" />
-			</section>
-			</form>
-			<section id="reponse">
-				<p>
-					<label>x1 = </label><label id="x1"></label></br>
-					<label>x2 = </label><label id="x2"></label></br>
-					<label>x3 = </label><label id="x3"></label></br>
-					<label>x4 = </label><label id="x4"></label></br>
-					<label>x5 = </label><label id="x5"></label></br>
-					</br>
-					<label>L'optimum est de : </label><label id="optimum"></label>
-				</p>
-			</section>
-			</section>
+		<input type="reset" value="remise à zéro" />
+		<input type="button" value="calculer" id="calculer" />
+		</section>
+		</form>
+		<section id="reponse">
+		<!--
+			<p>
+				<label>x1 = </label><label id="x1"></label></br>
+				<label>x2 = </label><label id="x2"></label></br>
+				<label>x3 = </label><label id="x3"></label></br>
+				<label>x4 = </label><label id="x4"></label></br>
+				<label>x5 = </label><label id="x5"></label></br>
+				</br>
+				<label>L'optimum est de : </label><label id="optimum"></label>
+			</p>
+		-->
+		</section>
+		</section>
 	<footer>
 		<script src="../js/simplex.js"></script>
 		<p><pre>Projet Recherche Opérationnelle : calcul du simplex. 
