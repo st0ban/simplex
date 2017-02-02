@@ -54,80 +54,71 @@ var c2 = Object.create(c1);
 // execution
 function calcul(){
 	var T = true; // traces debug booléen
-	//affichage énoncé et résultat
+
+	// affichage énoncé et résultat
 	var text = '<p><label>'+maxZ.afficher()+'</p></label>';
 	document.getElementById("reponse").innerHTML = text;
-	//création de la matrice
+
+	// variable pratique pour le tableau
 	var somme = Number(variables.value)+Number(contraintes.value);
-	if(T) console.log(somme);
+	if(T) console.log(somme); //debug
+
+	// ***************creation matrice*****************************
+
 	var matrice = new Array(); 
 	for(var i=0; i<contraintes.value;i++)
 		matrice[i] = new Array();
-	
+
+	// ***********init*********************************************
+
+	for(var i=0; i<contraintes.value; i++)
+		for(var j=0; j<=somme; j++)
+			matrice[i][j] = 0;	
+
 	// **********remplissage de la matrice**************************
-	// 2 variables au minimum
+
 	// fonction max
 	maxZ.x1 = form.elements.x1max.value; 
 	maxZ.x2 = form.elements.x2max.value;
 
-	switch (variables.value) {
-	// 2 variables au minimum
-	case "2" : if(T) console.log("2 variables");
-
-	// 2 contraintes au minimum
+	// 2 contraintes et 2 variables  au minimum
 	matrice[0][0] = form.elements.x1c1.value; // c1x1
 	matrice[0][1] = form.elements.x2c1.value; // c1x2
-	matrice[0][2] = 1; // variable d'écart 1
-	matrice[0][3] = 0;
 	matrice[0][somme] = form.elements.x6c1.value; // maxcontraintec1
 	matrice[1][0] = form.elements.x1c2.value; // c2x1
 	matrice[1][1] = form.elements.x2c2.value; // c2x2
-	matrice[1][2] = 0; 
-	matrice[1][3] = 1; // variable d'écart 2
 	matrice[1][somme] = form.elements.x6c2.value; // maxcontraintec2
+
+	// variables d'écart
+	for (var i=0; i<contraintes.value; i++)
+		matrice[i][Number(variables.value)+i] = 1;
+
+	// *****************2 variables******************************************* 
+	if(T) console.log("2 variables"); // debug
+
 	// 3 contraintes
 	if(contraintes.value > 2){
 		matrice[2][0] = form.elements.x1c3.value; // c3x1
 		matrice[2][1] = form.elements.x2c3.value; // c3x2
-		matrice[2][2] = 0; 
-		matrice[2][3] = 0; 
-		matrice[2][4] = 1; // variable d'écart 3 
-		matrice[0][4] = 0; 
-		matrice[1][4] = 0; 
 		matrice[2][somme] = form.elements.x6c3.value; // maxcontraintec3
 	}
 	// 4 contraintes	
 	if(contraintes.value > 3){ 
 		matrice[3][0] = form.elements.x1c4.value; // c4x1
 		matrice[3][1] = form.elements.x2c4.value; // c4x2
-		matrice[3][2] = 0; 
-		matrice[3][3] = 0; 
-		matrice[3][4] = 0; 
-		matrice[3][5] = 1; // variable d'écart 3 
-		matrice[0][5] = 0; 
-		matrice[1][5] = 0; 
-		matrice[2][5] = 0; 
 		matrice[3][somme] = form.elements.x6c4.value; // maxcontraintec4
 	}
 	// 5 contraintes	
 	if(contraintes.value > 4){ 
 		matrice[4][0] = form.elements.x1c5.value; // c5x1
 		matrice[4][1] = form.elements.x2c5.value; // c5x2
-		matrice[4][2] = 0; 
-		matrice[4][3] = 0; 
-		matrice[4][4] = 0; 
-		matrice[4][5] = 0; 
-		matrice[4][6] = 1; // variable d'écart 3 
-		matrice[0][6] = 0; 
-		matrice[1][6] = 0; 
-		matrice[2][6] = 0; 
-		matrice[3][6] = 0; 
 		matrice[4][somme] = form.elements.x6c5.value; // maxcontraintec5
-	}	
-	break;
-	default: if(T) console.log("euh c'est pas codé ça ! ");
 	}
-	if(variables.value > 2){ // 3 variables
+
+	// ************************3 variables*****************************************
+
+	if(variables.value > 2){  
+		if(T) console.log("3 variables"); // debug
 		maxZ.x3 = form.elements.x3max.value;
 		matrice[0][2] = form.elements.x3c1.value; // c1x3
 		matrice[1][2] = form.elements.x3c2.value; // c2x3
@@ -141,7 +132,11 @@ function calcul(){
 			matrice[4][2] = form.elements.x3c5.value; // c5x3
 		}	
 	}
-	if(variables.value > 3){ // 4 variables
+
+	// ************************4 variables*****************************************
+
+	if(variables.value > 3){ 
+		if(T) console.log("4 variables"); // debug
 		maxZ.x4 = form.elements.x4max.value;
 		matrice[0][3] = form.elements.x4c1.value; // c1x4
 		matrice[1][3] = form.elements.x4c2.value; // c2x4
@@ -155,7 +150,11 @@ function calcul(){
 			matrice[4][3] = form.elements.x4c5.value; // c5x4
 		}	
 	}
-	if(variables.value > 4){ // 5 variables 
+
+	// ************************5 variables*****************************************
+
+	if(variables.value > 4){   
+		if(T) console.log("5 variables"); // debug
 		matrice[0][4] = form.elements.x5c1.value; // c1x5
 		matrice[1][4] = form.elements.x5c2.value; // c2x5
 		maxZ.x5 = form.elements.x5max.value;
@@ -169,6 +168,7 @@ function calcul(){
 			matrice[4][4] = form.elements.x5c5.value; // c5x5
 		}	
 	}
+
 	var text = '<p><label>'+maxZ.afficher()+'</p></label>';
 	document.getElementById("reponse").innerHTML = text;
 	
