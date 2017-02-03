@@ -66,20 +66,21 @@ function calcul(){
 	// ***************creation matrice*****************************
 
 	var matrice = new Array(); 
-	for(var i=0; i<contraintes.value;i++)
+	for(var i=0; i<Number(contraintes.value)+1;i++)
 		matrice[i] = new Array();
 
 	// ***********init*********************************************
 
-	for(var i=0; i<contraintes.value; i++)
+	for(var i=0; i<Number(contraintes.value)+1;i++)
 		for(var j=0; j<=somme; j++)
 			matrice[i][j] = 0;	
 
 	// **********remplissage de la matrice**************************
 
 	// fonction max
-	maxZ.x1 = form.elements.x1max.value; 
-	maxZ.x2 = form.elements.x2max.value;
+	matrice[contraintes.value][0] = form.elements.x1max.value; // maxZ.x1
+	matrice[contraintes.value][1] = form.elements.x2max.value; // maxZ.x2
+	// maxZ.x2 = form.elements.x2max.value;
 
 	// 2 contraintes et 2 variables  au minimum
 	matrice[0][0] = form.elements.x1c1.value; // c1x1
@@ -119,36 +120,30 @@ function calcul(){
 
 	if(variables.value > 2){  
 		if(T) console.log("3 variables"); // debug
-		maxZ.x3 = form.elements.x3max.value;
+		matrice[contraintes.value][2] = form.elements.x3max.value; // maxZ.x3
 		matrice[0][2] = form.elements.x3c1.value; // c1x3
 		matrice[1][2] = form.elements.x3c2.value; // c2x3
-		if(contraintes.value > 2){ 
+		if(contraintes.value > 2) 
 			matrice[2][2] = form.elements.x3c3.value; // c3x3
-		}	
-		if(contraintes.value > 3){ 
+		if(contraintes.value > 3) 
 			matrice[3][2] = form.elements.x3c4.value; // c4x3
-		}	
-		if(contraintes.value > 4){ 
+		if(contraintes.value > 4) 
 			matrice[4][2] = form.elements.x3c5.value; // c5x3
-		}	
 	}
 
 	// ************************4 variables*****************************************
 
 	if(variables.value > 3){ 
 		if(T) console.log("4 variables"); // debug
-		maxZ.x4 = form.elements.x4max.value;
+		matrice[contraintes.value][3] = form.elements.x4max.value; // maxZ.x4
 		matrice[0][3] = form.elements.x4c1.value; // c1x4
 		matrice[1][3] = form.elements.x4c2.value; // c2x4
-		if(contraintes.value > 2){ 
+		if(contraintes.value > 2) 
 			matrice[2][3] = form.elements.x4c3.value; // c3x4
-		}	
-		if(contraintes.value > 3){ 
+		if(contraintes.value > 3) 
 			matrice[3][3] = form.elements.x4c4.value; // c4x4
-		}	
-		if(contraintes.value > 4){ 
+		if(contraintes.value > 4) 
 			matrice[4][3] = form.elements.x4c5.value; // c5x4
-		}	
 	}
 
 	// ************************5 variables*****************************************
@@ -157,16 +152,13 @@ function calcul(){
 		if(T) console.log("5 variables"); // debug
 		matrice[0][4] = form.elements.x5c1.value; // c1x5
 		matrice[1][4] = form.elements.x5c2.value; // c2x5
-		maxZ.x5 = form.elements.x5max.value;
-		if(contraintes.value > 2){ 
+		matrice[contraintes.value][4] = form.elements.x5max.value; // maxZ.x5 
+		if(contraintes.value > 2) 
 			matrice[2][4] = form.elements.x5c3.value; // c3x5
-		}	
-		if(contraintes.value > 3){ 
+		if(contraintes.value > 3) 
 			matrice[3][4] = form.elements.x5c4.value; // c4x5
-		}	
-		if(contraintes.value > 4){ 
+		if(contraintes.value > 4) 
 			matrice[4][4] = form.elements.x5c5.value; // c5x5
-		}	
 	}
 
 	var text = '<p><label>'+maxZ.afficher()+'</p></label>';
