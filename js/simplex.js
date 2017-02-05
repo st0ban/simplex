@@ -53,15 +53,11 @@ var c2 = Object.create(c1);
 
 // execution
 function calcul(){
-	var T = true; // traces debug booléen
 
 	// affichage énoncé et résultat
 	var text = '<p><label>'+maxZ.afficher()+'</p></label>';
 	document.getElementById("reponse").innerHTML = text;
 
-	// variable pratique pour le tableau
-	var somme = Number(variables.value)+Number(contraintes.value);
-	if(T) console.log(somme); //debug
 
 	// ***************creation matrice*****************************
 
@@ -160,25 +156,58 @@ function calcul(){
 		if(contraintes.value > 4) 
 			matrice[4][4] = form.elements.x5c5.value; // c5x5
 	}
+	
+	// *****************************determiner le pivot*************
 
+	matrice = pivot(matrice);
+//	if(T) console.log("calcul : "+ matrice[0][0]); // debug
+
+	
 	var text = '<p><label>'+maxZ.afficher()+'</p></label>';
 	document.getElementById("reponse").innerHTML = text;
 	
 	
-	if(T) console.table(matrice); // debug
+//	if(T) console.table(matrice); // debug
 
 	// var text = '<p><label>x1 = </label><label id="x1"></label></br><label>x2 = </label><label id="x2"></label></br><label>x3 = </label><label id="x3"></label></br><label>x4 = </label><label id="x4"></label></br><label>x5 = </label><label id="x5"></label></br></br><label>Ooptimum est de : </label><label id="optimum"></label></p>';	
 	// algo
 	
 };
 
+function pivot(matrice){
+	
+//	if(T) console.log("pivot : "+ matrice[0][0]); // debug
+	// trouver le pivot
+	var max = matrice[contraintes.value][0];
+	var imax = 0;
+	for(var i=1; i<somme; i++)
+		if(matrice[contraintes.value][i] > max){
+			max = matrice[contraintes.value][i];
+			imax = i;
+		}
+	var min = matrice[0][somme];
+	var imin = 0;
+	for(var i=1; i<contraintes.value; i++)
+		if(matrice[i][somme] < min){
+			min = matrice[i][somme];
+			imin = i;
+		}
+	var pivot = matrice[imin][imax];		
+	if(T) console.log(" max : "+ max + " min : "+ min + " pivot : "+ pivot); // debug
+	
+	return matrice;
+}
 // saisies variables préléminaires
+
+var T = true;   // traces debug booléen
 var contraintes;
 var variables;
+var somme;
 function clic(){ 
 	contraintes = document.getElementById("contraintes");
 	variables = document.getElementById("variables");
-	console.log("contraintes : "+contraintes.value+" "+"variables : "+variables.value); // debug
+	somme = Number(variables.value)+Number(contraintes.value);
+	if(T) console.log("contraintes : "+contraintes.value+" "+"variables : "+variables.value+" somme : "+somme); //debug
 	// construction du tableau HTML
 	// ligne 1 
 	var text = '<table id="tableau"><tr><td></td><th>x<sub>1</sub></th><th>x<sub>2</sub></th>';
