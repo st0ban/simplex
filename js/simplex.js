@@ -194,24 +194,28 @@ function pivot(matrice){
 		}
 	var pivot = matrice[imin][imax];		
 	if(T) console.log(" max : "+ max + " min : "+ min + " pivot : "+ pivot); // debug
-	
+	for(var i=0; i<=somme; i++)
+		matrice[imin][i] = matrice[imin][i]/pivot;
+	if(T){
+		console.table(matrice); // debug
+	} 
 	return matrice;
-}
-// saisies variables préléminaires
+	 }
+	 // saisies variables préléminaires
 
-var T = true;   // traces debug booléen
-var contraintes;
-var variables;
-var somme;
-function clic(){ 
-	contraintes = document.getElementById("contraintes");
-	variables = document.getElementById("variables");
-	somme = Number(variables.value)+Number(contraintes.value);
-	if(T) console.log("contraintes : "+contraintes.value+" "+"variables : "+variables.value+" somme : "+somme); //debug
-	// construction du tableau HTML
-	// ligne 1 
-	var text = '<table id="tableau"><tr><td></td><th>x<sub>1</sub></th><th>x<sub>2</sub></th>';
-	if(variables.value > 2){	
+	 var T = true;   // traces debug booléen
+	 var contraintes;
+	 var variables;
+	 var somme;
+	 function clic(){ 
+	 contraintes = document.getElementById("contraintes");
+	 variables = document.getElementById("variables");
+	 somme = Number(variables.value)+Number(contraintes.value);
+	 if(T) console.log("contraintes : "+contraintes.value+" "+"variables : "+variables.value+" somme : "+somme); //debug
+	 // construction du tableau HTML
+	 // ligne 1 
+	 var text = '<table id="tableau"><tr><td></td><th>x<sub>1</sub></th><th>x<sub>2</sub></th>';
+	 if(variables.value > 2){	
 		text += '<th>x<sub>3</sub></th>';
 		if(variables.value > 3){
 			text += '<th>x<sub>4</sub></th>';
